@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Fussball.de Bezirksliga Ergebnisse XXL</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #0a0f1a;
+    }
+    .frame-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    iframe {
+      position: absolute;
+      left: 0;
+      top: -2150px;       /* NUR Ergebnisse: tiefer nach unten */
+      width: 40vw;
+      height: 200vh;
+      border: none;
+      transform: scale(2.7);     /* VIEL größer für TV */
+      transform-origin: top left;
+    }
+    .status {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #00ff88;
+      font-family: monospace;
+      font-size: 16px;
+      background: rgba(0,0,0,0.8);
+      padding: 8px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame-container">
+    <div class="status">Ergebnisse laden...</div>
+    <iframe 
+      src="https://www.fussball.de/spieltagsuebersicht/bezirksliga-bezirk-oberschwaben-bezirksliga-herren-saison2526-wuerttemberg/-/staffel/02TKASC2PS000005VS5489BTVV03720K-G#!/"
+      onload="document.querySelector('.status').textContent='ERGEBNISSE OK!';"
+      onerror="document.querySelector('.status').textContent='Laden fehlgeschlagen';">
+    </iframe>
+  </div>
+</body>
+</html>
